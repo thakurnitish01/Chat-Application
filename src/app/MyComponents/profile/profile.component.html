@@ -1,0 +1,7 @@
+<app-navigation></app-navigation>
+<div *ngIf="user">
+    <h3>Welcome, {{ user?.fullName }}</h3>
+    <img [src]="user.photoURL" alt="Profile Picture">
+    <input type="file" (change)="updateProfilePicture($event)">
+  </div>
+  

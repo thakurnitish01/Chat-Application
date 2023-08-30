@@ -1,0 +1,29 @@
+<app-navigation></app-navigation>
+<div class="bg-gray-100 py-6">
+    <div class="max-w-lg mx-auto px-4">
+      <div class="chat-header">
+        <!-- <span>Chat with {{ selectedUserName }}</span> -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="py-8">
+    <div class="max-w-lg mx-auto space-y-4">
+      <div *ngFor="let message of messages$ | async" class="bg-white p-4 rounded-lg shadow-md">
+        <p class="text-gray-800">{{ message.content }}</p>
+        <small class="text-gray-500">{{ message.timestamp | date: 'medium' }}</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-gray-100 py-6">
+    <div class="max-w-lg mx-auto px-4">
+      <div class="flex">
+        <input type="text" [(ngModel)]="newMessage" class="flex-grow px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Type your message...">
+        <button (click)="sendMessage()" class="px-6 py-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+  

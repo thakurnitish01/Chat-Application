@@ -1,0 +1,11 @@
+<div class="user-list">
+  <div *ngFor="let user of users" (click)="startChatWithUser(user.id)">
+    <!-- <a [routerLink]="['/chat', user.id]"></a> -->
+    <a [routerLink]="['/chat', selectedUserId]">{{ user.fullName }} - {{ user.email }}</a>
+  </div>
+</div>
+
+<div *ngIf="selectedUserId">
+  <textarea [(ngModel)]="composedMessage"></textarea>
+  <button (click)="sendMessage()">Send Message</button>
+</div>
